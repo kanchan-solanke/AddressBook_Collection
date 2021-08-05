@@ -1,55 +1,59 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.*;
 
-public class AddressBook_Collections {
+        class AddressBook_Collections {
+            private static ArrayList<String> contactsList = new ArrayList<>();
+            private static Scanner scanner = new Scanner(System.in);
 
 
-    public static void main(String[] args) {
-        List<String> contactsList = new ArrayList<String>();
+            public static void main(String[] args) {
+                System.out.println("-------Welcome to Address Book Problem -----------");
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Enter First Name");
+                final String first = scan.nextLine();
+                System.out.println("Enter Last Name");
+                String last = scan.nextLine();
+                System.out.println("Enter Address");
+                String address = scan.nextLine();
+                System.out.println("Enter City");
+                String city = scan.nextLine();
+                System.out.println("Enter State");
+                String state = scan.nextLine();
+                System.out.println("Enter Zip Code");
+                String zip = scan.nextLine();
+                System.out.println("Enter Phone Number");
+                String mobileNo = scan.nextLine();
+                System.out.println("Enter E-mail");
+                String email = scan.next();
+                ArrayList<String> list = new ArrayList<String>();  //Creating arraylist
+                list.add(first);            //Adding object in arraylist
+                list.add(last);
+                list.add(address);
+                list.add(city);
+                list.add(state);
+                list.add(zip);
+                list.add(mobileNo);
+                list.add(email);
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the first name of the new contact");
-        String fname = scanner.nextLine();
-        System.out.println("Enter the last name of the new contact");
-        String lname = scanner.nextLine();
-        System.out.println("Enter the Address of the new contact");
-        String addr = scanner.nextLine();
-        System.out.println("Enter the City of the new contact");
-        String city1 = scanner.nextLine();
-        System.out.println("Enter the State of the new contact");
-        String state1 = scanner.nextLine();
-        System.out.println("Enter the Mobile Number of the new contact");
-        String mobNum = scanner.nextLine();
-        System.out.println("Enter the Zip of the new contact");
-        String zip = scanner.nextLine();
-        System.out.println("Enter the Email of the new contact");
-        String email = scanner.nextLine();
+                System.out.println(list);
+                System.out.println(contactsList);
+//
+//                Iterator<String> itObjectForList = list.iterator();
+//                        while (itObjectForList.hasNext()) {
+//                            System.out.println(itObjectForList.next());
+//                        }
+// doesn't allow for duplicate entries
+                        System.out.println("After converting into set ----");
 
-        contactsList.add(fname);
-        contactsList.add(lname);
-        contactsList.add(addr);
-        contactsList.add(city1);
-        contactsList.add(state1);
-        contactsList.add(zip);
-        contactsList.add(mobNum);
-        contactsList.add(email);
-        System.out.println(contactsList);
-            // To delete Personal details using person's name
-        System.out.println("enter First name to delete details:");
-        String name = scanner.nextLine();
-
-        for (int i=0; i < contactsList.size(); i++)
-        {
-            String personName = contactsList.get(i);
-
-            if (name.equals(personName))
-            {
-                contactsList.removeAll(contactsList);
-                System.out.println("this person details is deleted");
-                System.out.println("After delete person's details"+contactsList);
-                break;
-            }
-            else
-                System.out.println("please enter valid name");
-        }
-            }
-    }
+                        Set<String> set = new HashSet<String>(list);
+                        Iterator<String> itObjectForSet = set.iterator();
+                        while (itObjectForSet.hasNext()) {
+                            if(itObjectForSet.equals(list.containsAll(contactsList))){
+                                System.out.println(itObjectForSet);
+                            }else
+                            System.out.println(itObjectForSet.next());
+                        }
+                System.out.println(set);
+                    }
+                }
