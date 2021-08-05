@@ -32,13 +32,24 @@ public class AddressBook_Collections {
         contactsList.add(zip);
         contactsList.add(mobNum);
         contactsList.add(email);
-        System.out.println("ArrayList before replace: "+ contactsList);
+        System.out.println(contactsList);
+            // To delete Personal details using person's name
+        System.out.println("enter First name to delete details:");
+        String name = scanner.nextLine();
 
-        System.out.println("Enter the new name of the new contact");
-        String newfname = scanner.nextLine();
-        contactsList.set(0,newfname);
-        System.out.println("ArrayList after replace: " + fname);
-        System.out.println("ArrayList after replace: " +contactsList);
+        for (int i=0; i < contactsList.size(); i++)
+        {
+            String personName = contactsList.get(i);
 
+            if (name.equals(personName))
+            {
+                contactsList.removeAll(contactsList);
+                System.out.println("this person details is deleted");
+                System.out.println("After delete person's details"+contactsList);
+                break;
+            }
+            else
+                System.out.println("please enter valid name");
+        }
+            }
     }
-}
